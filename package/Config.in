@@ -1,5 +1,7 @@
 menu "Target packages"
 
+	source "package/firefly/Config.in"
+
 menu "Hardware Platforms"
 	source "package/rockchip/Config.in"
 endmenu
