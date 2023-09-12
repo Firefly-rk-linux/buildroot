@@ -117,6 +117,10 @@ else # umask / $(CURDIR) / $(O)
 all:
 .PHONY: all
 
+# Set ffgo version
+CURDATE = $(shell date +%Y%m%d-%H%M)
+PROJECT_VERSION = $(shell git tag contains | tail -1)
+
 # Set and export the version string
 export BR2_VERSION := 2021.11
 # Actual time the release is cut (for reproducible builds)
@@ -819,6 +823,14 @@ endif
 		echo "PRETTY_NAME=\"Buildroot $(BR2_VERSION)\"" \
 	) >  $(TARGET_DIR)/usr/lib/os-release
 	ln -sf ../usr/lib/os-release $(TARGET_DIR)/etc
+
+	mkdir -p $(TARGET_DIR)/etc/ffgo
+	( \
+		echo -e "LINUX_BUILDROOT_COMMIT: $(shell git log -1 | grep "commit" | head -n 1 | awk -F ' ' '{print $$2}')"; \
+		echo -e "XML_NAME: $(notdir $(realpath ../.repo/manifest.xml))"; \
+		echo -e "FIREFLY: ${PROJECT_VERSION}"; \
+		echo -e "DATE: ${CURDATE}"; \
+	) > $(TARGET_DIR)/etc/ffgo/ffver
 
 	@$(call MESSAGE,"Sanitizing RPATH in target tree")
 	PER_PACKAGE_DIR=$(PER_PACKAGE_DIR) $(TOPDIR)/support/scripts/fix-rpath target
