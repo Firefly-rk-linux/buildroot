@@ -14,10 +14,21 @@
 #include "multimedia/mpp.config"
 #include "wifibt/bt.config"
 #include "wifibt/wireless.config"
+#include "wifibt/network.config"
+#include "qt/qt5.config"
+#include "qt/app.config"
 #include "benchmark.config"
 #include "chromium.config"
 #include "debug.config"
+#include "debug2.config"
 #include "npu2.config"
 #include "powermanager.config"
 #include "test.config"
 #include "weston.config"
+BR2_PACKAGE_FIREFLY=y
+BR2_PACKAGE_QUECTEL_CM=y
+BR2_PACKAGE_UTIL_LINUX_BINARIES=y
+BR2_TARGET_TZ_ZONELIST=y
+BR2_TARGET_TZ_INFO=y
+BR2_PACKAGE_TZDATA=y
+BR2_TARGET_LOCALTIME="Etc/UTC"
