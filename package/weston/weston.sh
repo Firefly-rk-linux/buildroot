@@ -1,7 +1,14 @@
 # The env variables below can be overridden
 
+# HACK for old chromium, see:
+# https://bugs.chromium.org/p/chromium/issues/detail?id=1279574
+export WL_OUTPUT_VERSION=3
+
 # Comment out this for atomic related functions, e.g. sprites
 export WESTON_DISABLE_ATOMIC=1
+
+# Increasing this can help to reduce tearing when dumping low-level DRM buffers
+export WESTON_DRM_MIN_BUFFERS=2
 
 # Allow using drm modifier, e.g. ARM AFBC
 # export WESTON_ALLOW_GBM_MODIFIERS=1
@@ -49,13 +56,20 @@ export WESTON_FREEZE_DISPLAY=/tmp/.freeze_weston
 # export WESTON_DRM_CONFIG=/tmp/.weston_drm.conf
 #
 # Dynamic config examples:
-# echo "compositor:state:sleep" > /tmp/.weston_drm.conf # off + input wakeable
+# echo "compositor:state:offscreen" > /tmp/.weston_drm.conf # off + input
+# echo "compositor:state:sleep" > /tmp/.weston_drm.conf # off + input(wakeable)
 # echo "compositor:state:block" > /tmp/.weston_drm.conf # no input
 # echo "compositor:state:freeze" > /tmp/.weston_drm.conf # no input + freeze
 # echo "compositor:state:off" > /tmp/.weston_drm.conf # no input + off
 # echo "compositor:state:on" > /tmp/.weston_drm.conf
+# echo "compositor:hotplug:off" > /tmp/.weston_drm.conf
+# echo "compositor:hotplug:on" > /tmp/.weston_drm.conf
+# echo "compositor:hotplug:force" > /tmp/.weston_drm.conf
+# echo "compositor:cursor:hide" > /tmp/.weston_drm.conf
+# echo "compositor:cursor:show" > /tmp/.weston_drm.conf
 # echo "output:DSI-1:off" > /tmp/.weston_drm.conf
 # echo "output:eDP-1:freeze" > /tmp/.weston_drm.conf
+# echo "output:DSI-1:offscreen" > /tmp/.weston_drm.conf
 # echo "output:DSI-1:on" > /tmp/.weston_drm.conf
 # echo "output:all:rotate90" > /tmp/.weston_drm.conf
 # echo "output:all:rect=<100,20,1636,2068>" > /tmp/.weston_drm.conf

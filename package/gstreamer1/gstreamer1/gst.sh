@@ -1,11 +1,25 @@
+#!/bin/sh
+
 export GST_DEBUG_NO_COLOR=1
 export GST_INSPECT_NO_COLORS=1
+
+# Disable videodecoder's QoS by default
+export GST_VIDEO_DECODER_QOS=0
+
+# Set dma-feature in kmssrc
+# export GST_KMSSRC_DMA_FEATURE=1
+
+# Set dma-feature in mppdec
+# export GST_MPP_DEC_DMA_FEATURE=1
 
 # Skip vstride aligning, which is not required when using RKVENC.
 # export GST_MPP_ENC_UNALIGNED_VSTRIDE=1
 
 # Convert to NV12(using RGA) when output format is NV12_10.
 # export GST_MPP_DEC_DISABLE_NV12_10=1
+
+# Convert to NV12(using RGA) when output format is NV16_10.
+# export GST_MPP_DEC_DISABLE_NV16_10=1
 
 # Convert to NV12(using RGA) when output format is not NV12.
 # export GST_MPP_VIDEODEC_DEFAULT_FORMAT=NV12
@@ -28,6 +42,9 @@ export GST_INSPECT_NO_COLORS=1
 
 # Put video surface above UI window in waylandsink.
 # export WAYLANDSINK_PLACE_ABOVE=1
+
+# Force trying dmabuf in waylandsink
+export WAYLANDSINK_FORCE_DMABUF=1
 
 # Preferred formats for V4L2
 export GST_V4L2_PREFERRED_FOURCC=NV12:YU12:NV16:YUY2

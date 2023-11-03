@@ -96,9 +96,9 @@ define log_commands
 	$(Q)$(file >> $(SCRIPT),[ -z "$$DEBUG" ] || set -x)
 	$(Q)$(file >> $(SCRIPT), \
 		echo "########## $($(PKG)_BASENAME): $(subst _, ,$(1)) ##########")
-	$(Q)$(file >> $(SCRIPT),cd $(TOPDIR))
-	$(Q)$(foreach cmd,$(2),$(file >> $(SCRIPT),$($(cmd)))$(sep))
-	$(Q)$(SED) 's/^[ \t@-]*//' -e '/^$$/d' $(SCRIPT)
+	$(Q)$(foreach cmd,$(2),$(file >> $(SCRIPT),cd $(TOPDIR))
+		$(file >> $(SCRIPT),$($(cmd)))$(sep))
+	$(Q)$(SED) 's/^[ \t]*[@-]*//' -e '/^$$/d' $(SCRIPT)
 	$(Q)chmod +x $(SCRIPT)
 endef
 
@@ -251,7 +251,8 @@ $(BUILD_DIR)/%/.stamp_rsynced:
 	@$(call step_end,rsync)
 	$(Q)touch $@
 
-	@test -d $(SRCDIR)/.git && (cd $(SRCDIR) && git status --ignored -s | \
+	@test -d $(SRCDIR)/.git && ln -rsf $(SRCDIR)/.git $(@D) && \
+		(cd $(SRCDIR) && git status --ignored -s | \
 		grep "" && echo "WARN: $(SRCDIR) is dirty!") || true
 
 # Patch
@@ -1132,6 +1133,8 @@ $(1)-clean-for-reconfigure: $(1)-clean-for-rebuild
 			rm -f $$($(2)_TARGET_CONFIGURE)
 
 $(1)-reconfigure:	$(1)-clean-for-reconfigure $(1)
+
+$(1)-recreate:		$$($(2)_TARGET_DIRCLEAN) $(1)
 
 # define the PKG variable for all targets, containing the
 # uppercase package variable prefix
