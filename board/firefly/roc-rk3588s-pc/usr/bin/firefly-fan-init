@@ -29,6 +29,9 @@ elif [ "$BOARD_VERSION" == "CS-R1-3399JD4-MAIN" ]; then
 elif [ "$RK3588_BOARD_VERSION" == "ROC-RK3588S-PC" ]; then
 	/usr/bin/firefly_fan_control ROC-RK3588S-PC > /dev/null 2>&1 &
 
+elif [ "$RK3588_BOARD_VERSION" == "ROC-RK3588S-PC-EXT" ]; then
+	/usr/bin/firefly_fan_control ROC-RK3588S-PC > /dev/null 2>&1 &
+
 elif [ "$RK3588_BOARD_VERSION" == "CS-A1-N8S-rk3588s-jd4" ]; then
 	/usr/bin/firefly_fan_control CS-A1-N8S-3588S-JD4-MAIN > /dev/null 2>&1 &
 
