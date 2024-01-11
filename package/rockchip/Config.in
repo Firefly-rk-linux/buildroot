@@ -56,6 +56,11 @@ config BR2_PACKAGE_RK3326
 	help
 	  Use rockchip's rk3326 chip
 
+config BR2_PACKAGE_RK3328
+	bool "rk3328 chip"
+	help
+	  Use rockchip's rk3328 chip
+
 config BR2_PACKAGE_RK3358
 	bool "rk3358 chip"
 	select BR2_PACKAGE_ROCKCHIP_HAS_ISP1
@@ -113,6 +118,7 @@ config BR2_PACKAGE_CAMERA_ENGINE
 menu "Rockchip BSP packages"
 	source "package/rockchip/camera-engine-rkaiq/Config.in"
 	source "package/rockchip/camera-engine-rkisp/Config.in"
+	source "package/rockchip/common_algorithm/Config.in"
 	source "package/rockchip/gstreamer1-rockchip/Config.in"
 	source "package/rockchip/libv4l-rkmpp/Config.in"
 	source "package/rockchip/npu_powerctrl/Config.in"
@@ -122,7 +128,6 @@ menu "Rockchip BSP packages"
 	source "package/rockchip/rknpu/Config.in"
 	source "package/rockchip/rknpu2/Config.in"
 	source "package/rockchip/rknpu-fw/Config.in"
-	source "package/rockchip/rknn_demo/Config.in"
 	source "package/rockchip/rkscript/Config.in"
 	source "package/rockchip/rktoolkit/Config.in"
 	source "package/rockchip/rkupdate/Config.in"
@@ -131,16 +136,13 @@ menu "Rockchip BSP packages"
 	source "package/rockchip/rockchip-alsa-config/Config.in"
 	source "package/rockchip/rockchip-rga/Config.in"
 	source "package/rockchip/rockchip-mali/Config.in"
-	source "package/rockchip/rockchip-mali-nvr/Config.in"
 	source "package/rockchip/rockchip-mpp/Config.in"
 	source "package/rockchip/rockchip-test/Config.in"
+	source "package/rockchip/rockchip-uac-app/Config.in"
 	source "package/rockchip/rockit/Config.in"
+	source "package/rockchip/rkadk/Config.in"
 	source "package/rockchip/tee-user-app/Config.in"
 	source "package/rockchip/slt_gpu_light/Config.in"
-endmenu
-
-menu "Rockchip Qt demos"
-	source "package/rockchip/apps/Config.in"
 endmenu
 
 endif

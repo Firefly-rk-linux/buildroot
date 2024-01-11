@@ -24,12 +24,6 @@ ifeq ($(BR2_PACKAGE_ROCKCHIP_MPP_TESTS),y)
 ROCKCHIP_MPP_CONF_OPTS += "-DBUILD_TEST=ON"
 endif
 
-define ROCKCHIP_MPP_LINK_GIT
-	rm -rf $(@D)/.git
-	ln -s $(SRCDIR)/.git $(@D)/
-endef
-ROCKCHIP_MPP_POST_RSYNC_HOOKS += ROCKCHIP_MPP_LINK_GIT
-
 define ROCKCHIP_MPP_REMOVE_NOISY_LOGS
 	sed -i -e "/pp_enable %d/d" \
 		$(@D)/mpp/hal/vpu/jpegd/hal_jpegd_vdpu2.c || true
