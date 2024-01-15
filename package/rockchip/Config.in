@@ -56,6 +56,11 @@ config BR2_PACKAGE_RK3326
 	help
 	  Use rockchip's rk3326 chip
 
+config BR2_PACKAGE_RK3328
+	bool "rk3328 chip"
+	help
+	  Use rockchip's rk3328 chip
+
 config BR2_PACKAGE_RK3358
 	bool "rk3358 chip"
 	select BR2_PACKAGE_ROCKCHIP_HAS_ISP1
@@ -123,7 +128,6 @@ menu "Rockchip BSP packages"
 	source "package/rockchip/rknpu/Config.in"
 	source "package/rockchip/rknpu2/Config.in"
 	source "package/rockchip/rknpu-fw/Config.in"
-	source "package/rockchip/rknn_demo/Config.in"
 	source "package/rockchip/rkscript/Config.in"
 	source "package/rockchip/rktoolkit/Config.in"
 	source "package/rockchip/rkupdate/Config.in"
@@ -132,7 +136,6 @@ menu "Rockchip BSP packages"
 	source "package/rockchip/rockchip-alsa-config/Config.in"
 	source "package/rockchip/rockchip-rga/Config.in"
 	source "package/rockchip/rockchip-mali/Config.in"
-	source "package/rockchip/rockchip-mali-nvr/Config.in"
 	source "package/rockchip/rockchip-mpp/Config.in"
 	source "package/rockchip/rockchip-test/Config.in"
 	source "package/rockchip/rockchip-uac-app/Config.in"
