@@ -15,8 +15,6 @@
 #include "wifibt/bt.config"
 #include "wifibt/wireless.config"
 #include "wifibt/network.config"
-#include "qt/qt5.config"
-#include "qt/app.config"
 #include "debug.config"
 #include "debug2.config"
 #include "tools/benchmark.config"
