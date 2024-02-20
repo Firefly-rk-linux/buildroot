@@ -1,3 +1,4 @@
+auto wlan0
 iface wlan0 inet manual
 	dhcp-up /sbin/dhcpcd
 	dhcp-down /sbin/dhcpcd -k
