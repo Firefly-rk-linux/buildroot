@@ -15,7 +15,9 @@ RECOVERY_CFLAGS = $(TARGET_CFLAGS) -I. \
 	-fPIC \
 	-lpthread \
 	-lcurl \
-	-lbz2
+	-lbz2 \
+	-lssl \
+	-lcrypto
 
 RECOVERY_MAKE_ENV = $(TARGET_MAKE_ENV)
 
