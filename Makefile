@@ -1069,7 +1069,7 @@ rockchip_%_defconfig: $(BUILD_DIR)/buildroot-config/conf $(1)/configs/rockchip_%
 	$$(COMMON_CONFIG_ENV) BR2_DEFCONFIG=$(1)/configs/$$@ \
 		$$< --defconfig=$(BASE_DIR)/.config.in $$(CONFIG_CONFIG_IN)
 
-firefly_%_defconfig: $(BUILD_DIR)/buildroot-config/conf $(1)/configs/rockchip_%_defconfig outputmakefile
+firefly_%_defconfig: $(BUILD_DIR)/buildroot-config/conf $(1)/configs/firefly_%_defconfig outputmakefile
 	$(TOPDIR)/build/parse_defconfig.sh $(1)/configs/$$@ \
 		$(BASE_DIR)/.config.in
 	$$(COMMON_CONFIG_ENV) BR2_DEFCONFIG=$(1)/configs/$$@ \
