@@ -5,76 +5,25 @@
 #include "fs/ntfs.config"
 #include "fs/vfat.config"
 #include "gpu/gpu.config"
+#include "multimedia/audio.config"
+#include "multimedia/camera.config"
+#include "multimedia/gst/audio.config"
+#include "multimedia/gst/camera.config"
+#include "multimedia/gst/rtsp.config"
+#include "multimedia/gst/video.config"
 #include "multimedia/mpp.config"
+#include "wifibt/bt.config"
+#include "wifibt/wireless.config"
 #include "tools/benchmark.config"
 #include "tools/common.config"
 #include "tools/test.config"
 #include "chromium.config"
+#include "npu2.config"
+#include "powermanager.config"
 #include "weston.config"
 
-# NETWORK_MANAGER
-BR2_PACKAGE_NETWORK_MANAGER=y
-BR2_PACKAGE_LIBGCRYPT=y
-BR2_PACKAGE_LIBGPG_ERROR=y
-BR2_PACKAGE_LIBNDP=y
-BR2_PACKAGE_WIRELESS_TOOLS_LIB=y
-
-
-# recovery 
-BR2_PACKAGE_RECOVERY=y
-BR2_PACKAGE_RKUPDATE=y
-BR2_PACKAGE_RECOVERY_NO_UI=y
-BR2_PACKAGE_RECOVERY_RECOVERYBIN=y
-BR2_PACKAGE_RECOVERY_UPDATEENGINEBIN=y
-#BR2_PACKAGE_RECOVERY_USE_UPDATEENGINE=y
-
-BR2_ROOTFS_DEVICE_CREATION_DYNAMIC_EUDEV=y
-
-
-
-# FTP
-BR2_PACKAGE_CURLFTPFS=y
-
-# SSHFS
-BR2_PACKAGE_SSHFS=y
-
-
-# SQUASHFS
-#BR2_PACKAGE_SQUASHFS=y
-#BR2_PACKAGE_SQUASHFS_GZIP=y
-#BR2_PACKAGE_SQUASHFS_LZ4=y
-#BR2_PACKAGE_SQUASHFS_LZMA=y
-#BR2_PACKAGE_SQUASHFS_LZO=y
-#BR2_PACKAGE_SQUASHFS_XZ=y
-
-# SAMBA4
-BR2_PACKAGE_SAMBA4=y
-
-# NFS
-BR2_PACKAGE_NFS_UTILS=y
-BR2_PACKAGE_NFS_UTILS_RPC_NFSD=y
-BR2_PACKAGE_NILFS_UTILS=y
-BR2_PACKAGE_LIBTIRPC=y
-BR2_PACKAGE_RPCBIND=y
-
-
-# network
-#BR2_PACKAGE_DHCPCD=y
-#BR2_PACKAGE_DHCPDUMP=y
-#BR2_PACKAGE_DNSMASQ=y
-# BR2_PACKAGE_DROPBEAR is not set
-BR2_PACKAGE_GESFTPSERVER=y
-BR2_PACKAGE_HOSTAPD=y
-BR2_PACKAGE_NMAP=y
-BR2_PACKAGE_NTP=y
-BR2_PACKAGE_NTP_NTPDATE=y
-BR2_PACKAGE_NTP_SNTP=y
-BR2_PACKAGE_OPENSSH=y
-BR2_PACKAGE_PPPD=y
-BR2_PACKAGE_PPPD_FILTER=y
-BR2_PACKAGE_PPPD_RADIUS=y
-
-
+BR2_PACKAGE_RKWIFIBT_AP6275P=y
+BR2_PACKAGE_RKWIFIBT_BTUART="ttyS8"
 
 # Firefly
 BR2_TARGET_GENERIC_ROOT_PASSWD="firefly"
@@ -89,3 +38,7 @@ BR2_PACKAGE_ROCKIT_MPI=y
 BR2_PACKAGE_RSYNC=y
 BR2_PACKAGE_UTIL_LINUX_BINARIES=y
 
+# can
+BR2_PACKAGE_CAN_UTILS=y
+BR2_PACKAGE_IPROUTE2=y
+BR2_PACKAGE_LIBSOCKETCAN=y
