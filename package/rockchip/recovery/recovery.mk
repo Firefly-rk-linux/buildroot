@@ -73,10 +73,12 @@ define RECOVERYBIN_INSTALL_TARGET
 	cp $(@D)/res/images/* $(TARGET_DIR)/res/images/
 endef
 
+ifneq ($(BR2_PACKAGE_NO_RECOVERY_SCRIPTS),y)
 define RECOVERY_INSTALL_INIT_SYSV
 	$(INSTALL) -D -m 755 $(RECOVERY_PKGDIR)/S40recovery \
 		$(TARGET_DIR)/etc/init.d/S40recovery
 endef
+endif
 endif
 
 ifeq ($(BR2_PACKAGE_RECOVERY_BOOTCONTROL), y)

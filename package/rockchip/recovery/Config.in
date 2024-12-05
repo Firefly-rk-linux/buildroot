@@ -51,6 +51,9 @@ config BR2_PACKAGE_RECOVERY_RECOVERYBIN
 config BR2_PACKAGE_RECOVERY_UPDATEENGINEBIN
 	bool "updateEngine bin"
 
+config BR2_PACKAGE_NO_RECOVERY_SCRIPTS
+	bool "recovery scripts"
+
 config BR2_PACKAGE_RECOVERY_STATIC
 	bool "Enable static"
 	default y if BR2_STATIC_LIBS
